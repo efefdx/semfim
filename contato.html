@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo de Pagamento</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header, .footer {
+            text-align: center;
+        }
+        .header img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: #333;
+        }
+        .details {
+            margin-bottom: 30px;
+        }
+        .details label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+        }
+        .details input, .details textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+        .footer p {
+            margin: 15px 0;
+            font-size: 15px;
+            color: #555;
+        }
+        .footer .contacts {
+            margin-top: 30px;
+            font-size: 15px;
+            color: #333;
+        }
+        .contacts .contact-info {
+            margin-bottom: 10px;
+        }
+        .contacts .contact-info span {
+            font-weight: bold;
+        }
+        .payment-summary {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            border-top: 2px solid #4CAF50;
+            padding-top: 20px;
+        }
+        .print-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 40px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .print-button:hover {
+            background-color: #45a049;
+        }
+        .terms {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        .terms h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .terms p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="R.jpeg" alt="Logotipo da Empresa">
+            <h1>Recibo de Pagamento</h1>
+        </div>
+
+        <div class="details">
+            <label for="nome">Nome do Matriculado:</label>
+            <input type="text" id="nome" placeholder="Digite o nome do matriculado">
+
+            <label for="valor">Valor a Pagar:</label>
+            <input type="text" id="valor" placeholder="Digite o valor a pagar">
+
+            <label for="dono">Nome do Proprietário:</label>
+            <input type="text" id="dono" placeholder="Nome do Proprietário">
+
+            <label for="contato-dono">Contato Do Centro:</label>
+            <input type="text" id="contato-dono" placeholder="Contato Do Centro">
+
+            <label for="contato-cliente">Contato do Cliente:</label>
+            <input type="text" id="contato-cliente" placeholder="Digite o contato do cliente">
+
+            <label for="observacoes">Observações:</label><textarea id="observacoes" rows="4" placeholder="Digite observações adicionais, se houver"></textarea>
+        </div>
+
+        <div class="footer">
+            <p>"Agradecemos pela confiança em nossos serviços. Por favor, mantenha este comprovante para futuras consultas."</p>
+            <p>"Para mais informações ou dúvidas, entre em contato com nossa equipe."</p>
+
+            <div class="contacts">
+                <div class="contact-info">
+                    <span>Contato do Dono:</span> <span id="contact-dono">exemplo@empresa.com | (99) 9999-9999</span>
+                </div>
+                <div class="contact-info">
+                    <span>Contato do Cliente:</span> <span id="contact-cliente">cliente@email.com | (88) 8888-8888</span>
+                </div>
+            </div>
+
+            <div class="payment-summary">
+                Valor Total a Pagar: KZ <span id="total">______</span>
+            </div>
+        </div>
+
+        <button class="print-button" onclick="window.print()">Imprimir Recibo</button>
+
+        <div class="terms">
+            <h2>Termos e Condições</h2>
+            <p>Este recibo é uma comprovação de pagamento realizado pelos serviços prestados pela empresa. O valor indicado neste recibo deve ser conferido no ato do recebimento.</p>
+            <p>A empresa não se responsabiliza por erros no preenchimento das informações fornecidas pelo cliente.</p>
+            <p>Para qualquer contestação, entre em contato com nossa equipe de suporte dentro de 30 dias após a emissão deste recibo.</p>
+        </div>
+    </div>
+
+    <script>
+        // Script simples para atualizar o valor total
+        document.getElementById('valor').addEventListener('input', function() {
+            document.getElementById('total').textContent = this.value;
+        });
+    </script>
+
+</body>
+</html>
